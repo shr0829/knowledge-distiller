@@ -1,0 +1,8 @@
+# 插件数据不进 git（spec §14）
+zhixu.sqlite3
+zhixu.sqlite3-journal
+zhixu.sqlite3-wal
+zhixu.sqlite3-shm
+logs/
+*.log
+.tmp/

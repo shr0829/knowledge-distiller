@@ -1,0 +1,5 @@
+# LLM Wiki（llm-wiki）插件条目。
+# 条目 id = 设置命名空间（spec §6.5）：设置面板里的 namespace 就是这里的 id。
+- insert:
+    - id: llm-wiki
+      name: dsh-llm-wiki
