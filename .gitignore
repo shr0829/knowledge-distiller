@@ -1,0 +1,12 @@
+.venv/
+.library/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+frontend/dist-mcp/
+.impeccable/review/
+work/
+.env

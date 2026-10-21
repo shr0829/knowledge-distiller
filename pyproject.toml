@@ -1,0 +1,43 @@
+[project]
+name = "library-companion"
+version = "0.1.0"
+description = "Local, review-first knowledge maintenance for Codex and Obsidian."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "pydantic>=2.10,<3",
+  "portalocker>=3,<4",
+  "mcp>=1.27,<2",
+  "langgraph>=1,<2",
+  "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+learning = ["langmem>=0.0.29,<0.1", "langchain-openai>=1,<2"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "ruff>=0.12"]
+
+[project.scripts]
+library = "library_companion.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/library_companion"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]

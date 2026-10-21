@@ -1,0 +1,8 @@
+{
+  "name": "library-knowledge-search-runtime",
+  "private": true,
+  "dependencies": {
+    "@tobilu/qmd": "2.8.3",
+    "obsidian-hybrid-search": "0.16.2"
+  }
+}
