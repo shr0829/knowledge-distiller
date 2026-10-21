@@ -120,7 +120,7 @@ node scripts/live-check.mjs        # 对正在运行的 DSH 做只读自检（�
 
 # v2 验收（页面 / 补丁 / 主张 / lint）
 
-规格见 `../../../docs/DSH_WIKI_SPEC.md` §8。每一条都能落到具体测试名或线上步骤。
+规格见 `../../docs/specs/DSH_WIKI_SPEC.md` §8。每一条都能落到具体测试名或线上步骤。
 
 | # | 验收 | 落在哪 |
 | --- | --- | --- |

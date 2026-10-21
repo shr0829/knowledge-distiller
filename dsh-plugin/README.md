@@ -2,12 +2,12 @@
 
 把「会话即采集」的知识库做成 DSH 原生插件：采集入口、编译流水线、审核动作全部收在
 DSH 同一进程内，不再需要旁挂的 Python 服务。名字里的 `llm-wiki` 取自 2026 年那批
-「摄入时编译、查询时只读页面」的知识库实践（见 `../../docs/DSH_WIKI_SPEC.md` 的谱系表）。
+「摄入时编译、查询时只读页面」的知识库实践（见 `../docs/specs/DSH_WIKI_SPEC.md` 的谱系表）。
 
-- 规格：`../../docs/DSH_PLUGIN_SPEC.md`（v1：采集 / 提炼 / 审核 / 写入，已实现）
-- 现行设计：`../../docs/DSH_WIKI_SPEC.md`（v2：页面 / 补丁 / 主张双时态 / lint，已实现）
-- 施工要求：`../../docs/DSH_PLUGIN_PROMPT.md`
-- 技术调研：`../../docs/research/dsh-plugin-server.md`、`../../docs/research/dsh-plugin-client.md`
+- 规格：`../docs/specs/DSH_PLUGIN_SPEC.md`（v1：采集 / 提炼 / 审核 / 写入，已实现）
+- 现行设计：`../docs/specs/DSH_WIKI_SPEC.md`（v2：页面 / 补丁 / 主张双时态 / lint，已实现）
+- 施工要求：`../docs/specs/DSH_PLUGIN_PROMPT.md`
+- 技术调研：`../docs/specs/research/dsh-plugin-server.md`、`../docs/specs/research/dsh-plugin-client.md`
 - 与旧 Python 后端（`../src/library_companion/`）**并列、互不依赖**，不迁移其代码。
 
 ## 目录
