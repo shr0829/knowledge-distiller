@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import {
   Badge,
   Button,
@@ -6,7 +6,7 @@ import {
   Input,
   Select,
   Switch,
-} from "@fluentui/react-components";
+} from "./ui";
 import {
   ArrowDownload20Regular,
   ArrowUndo20Regular,
@@ -17,7 +17,7 @@ import {
   Link20Regular,
   Search20Regular,
   Sparkle20Regular,
-} from "@fluentui/react-icons";
+} from "./icons";
 import { api } from "./api";
 import { Diff, Empty } from "./shared";
 import {

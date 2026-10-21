@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+﻿import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Badge,
   Button,
@@ -13,11 +13,11 @@ import {
   Input,
   Select,
   Tooltip,
+  useTheme,
   webLightTheme,
-} from "@fluentui/react-components";
+} from "./ui";
 import {
   ArrowClockwise20Regular,
-  BookOpen24Regular,
   Checkmark20Regular,
   ChevronRight16Regular,
   DataUsage20Regular,
@@ -32,7 +32,7 @@ import {
   Search20Regular,
   Settings20Regular,
   ShieldCheckmark20Regular,
-} from "@fluentui/react-icons";
+} from "./icons";
 import { api } from "./api";
 import { ProposalForm, ReviewDetail } from "./Review";
 import { History, Learning, NotesGraph, SettingsPage } from "./Secondary";
@@ -40,7 +40,6 @@ import { KnowledgePage } from './Knowledge';
 import { Diff, Empty } from "./shared";
 import { actions, date, errorText, isPending, kinds, statuses } from "./utils";
 import type { AppState, Preview, Proposal, Review } from "./types";
-import "./App.css";
 
 type Page = "review" | "knowledge" | "history" | "graph" | "learning" | "settings";
 type BatchItem = { proposal: Proposal; review: Review; preview: Preview };
@@ -56,6 +55,7 @@ const pages = [
 ];
 
 function App() {
+  const { mode: themeMode, setMode: setThemeMode } = useTheme();
   const [state, setState] = useState<AppState | null>(null);
   const [page, setPage] = useState<Page>("review");
   const [projectId, setProjectId] = useState("");
@@ -226,12 +226,10 @@ function App() {
       <div className="app-shell">
         <aside className="sidebar" aria-label="主导航">
           <div className="brand">
-            <span className="brand-mark">
-              <BookOpen24Regular />
-            </span>
+            <span className="brand-mark">知</span>
             <div>
               <strong>知序</strong>
-              <span>Codex · Obsidian</span>
+              <span>{project ? project.name : "本地知识提炼工作台"}</span>
             </div>
           </div>
           <div className="project-picker">
@@ -270,29 +268,49 @@ function App() {
             ))}
           </nav>
           <div className="sidebar-footer">
-            <ShieldCheckmark20Regular />
-            <div>
-              <strong>
+            <div className="mode-chip">
+              <ShieldCheckmark20Regular />
+              <span>
                 {mode === "AUTO_LIMITED"
                   ? "限定自动化模式"
                   : mode === "SHADOW"
                     ? "影子验证模式"
                     : "人工审核模式"}
-              </strong>
-              <span>
-                {mode === "AUTO_LIMITED"
-                  ? "仅授权范围可自动写入"
-                  : "每次写入由你确认"}
               </span>
             </div>
+            <button
+              type="button"
+              className="btn btn--subtle btn--sm theme-toggle"
+              onClick={() =>
+                setThemeMode(
+                  themeMode === "light"
+                    ? "dark"
+                    : themeMode === "dark"
+                      ? "auto"
+                      : "light",
+                )
+              }
+              title="切换外观"
+            >
+              {themeMode === "light"
+                ? "浅色"
+                : themeMode === "dark"
+                  ? "深色"
+                  : "跟随系统"}
+            </button>
           </div>
         </aside>
         <div className="workspace">
           <header className="topbar">
-            <div className="breadcrumb">
-              <span>知识工作台</span>
-              <ChevronRight16Regular />
-              <strong>{pages.find((p) => p.id === page)?.label}</strong>
+            <div className="title">
+              <h1>{pages.find((p) => p.id === page)?.label}</h1>
+              {project && (
+                <span className="breadcrumb">
+                  {project.name}
+                  <ChevronRight16Regular size={12} />
+                  {project.writable_dirs[0] ?? "知识库"}
+                </span>
+              )}
             </div>
             <div className="topbar-status">
               <span className={`status-dot ${online ? "online" : ""}`} />
@@ -315,6 +333,7 @@ function App() {
             id="main"
             className={`main ${page === "review" ? "main-review" : ""}`}
           >
+            <div className="page">
             {updateAvailable && (
               <div className="message" role="status">
                 <Info20Regular />
@@ -407,7 +426,6 @@ function App() {
               <>
                 <div className="page-heading">
                   <div>
-                    <h1>{pages.find((p) => p.id === page)?.label}</h1>
                     <p>
                       {page === "review"
                         ? "从对话中提炼，在确认后沉淀。"
@@ -695,6 +713,7 @@ function App() {
                 )}
               </>
             )}
+            </div>
           </main>
           <footer className="workspace-footer">
             <span>本地优先 · Markdown 知识库</span>

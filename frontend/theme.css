@@ -1,0 +1,70 @@
+﻿
+/* ---------- 9. shell extras ---------- */
+.mode-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 2px;
+  font-size: 11px;
+  color: var(--fg-3);
+}
+
+.mode-chip > svg {
+  color: var(--fg-4);
+}
+
+.theme-toggle {
+  align-self: flex-start;
+  margin-left: -6px;
+}
+
+.page-heading p {
+  margin-top: 0;
+}
+
+.main-review {
+  overflow: auto;
+}
+
+/* diff 行级内联标记（shared.tsx 使用 span 渲染） */
+.diff-code .diff-add,
+.diff-code .diff-remove,
+.diff-code .diff-range {
+  display: block;
+  padding: 0 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-code .diff-add {
+  background: var(--diff-add-bg);
+  color: var(--diff-add-fg);
+}
+
+.diff-code .diff-remove {
+  background: var(--diff-del-bg);
+  color: var(--diff-del-fg);
+}
+
+.diff-code .diff-range {
+  background: var(--accent-soft);
+  color: var(--fg-accent);
+}
+
+.empty h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+.empty p {
+  max-width: 46ch;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--fg-3);
+}
+
+.empty .button-row {
+  margin-top: 6px;
+  justify-content: center;
+}

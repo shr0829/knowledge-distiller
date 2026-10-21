@@ -1,7 +1,7 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import type { ReactNode } from "react";
-import { Tab, TabList } from "@fluentui/react-components";
-import { BookOpen24Regular } from "@fluentui/react-icons";
+import { Tab, TabList } from "./ui";
+import { BookOpen24Regular } from "./icons";
 import type { Preview } from "./types";
 export function Empty({
   icon = <BookOpen24Regular />,

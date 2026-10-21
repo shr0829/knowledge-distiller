@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Badge, Button, Spinner } from '@fluentui/react-components';
-import { DocumentSearch20Regular, Link20Regular } from '@fluentui/react-icons';
+﻿import { useState } from 'react';
+import { Badge, Button, Spinner } from './ui';
+import { DocumentSearch20Regular, Link20Regular } from './icons';
 import { api } from './api';
 import { errorText } from './utils';
 

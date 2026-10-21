@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import {
   Badge,
   Button,
@@ -14,7 +14,7 @@ import {
   Tab,
   TabList,
   Textarea,
-} from "@fluentui/react-components";
+} from "./ui";
 import {
   Checkmark20Regular,
   Clock20Regular,
@@ -24,7 +24,7 @@ import {
   Edit20Regular,
   Folder20Regular,
   Info20Regular,
-} from "@fluentui/react-icons";
+} from "./icons";
 import { api } from "./api";
 import { EvidencePanel } from "./Evidence";
 import { Diff, Empty } from "./shared";

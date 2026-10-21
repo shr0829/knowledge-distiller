@@ -1,12 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Badge, Button, Checkbox, Field, Input, Select, Spinner, Switch, Tab, TabList } from '@fluentui/react-components';
-import { ArrowClockwise20Regular, ArrowDownload20Regular, ChevronRight16Regular, Dismiss20Regular, DocumentSearch20Regular, Link20Regular, Play20Regular, Search20Regular } from '@fluentui/react-icons';
+﻿import { useCallback, useEffect, useState } from 'react';
+import { Badge, Button, Checkbox, Field, Input, Select, Spinner, Switch, Tab, TabList } from './ui';
+import { ArrowClockwise20Regular, ArrowDownload20Regular, ChevronRight16Regular, Dismiss20Regular, DocumentSearch20Regular, Link20Regular, Play20Regular, Search20Regular } from './icons';
 import { api } from './api';
 import { errorText } from './utils';
 import { EvidencePanel } from './Evidence';
 import type { NoteEvidence } from './Evidence';
 import type { Project } from './types';
-import './Knowledge.css';
 
 type Source = { id: string; locator: string; kind: string; revision: string; chars: number; processed: boolean; content?: string };
 type Build = { id: string; status: string; source_ids: string[]; proposal_ids: string[]; error?: string; review_progress?: Record<string, number>; review_complete?: boolean };
